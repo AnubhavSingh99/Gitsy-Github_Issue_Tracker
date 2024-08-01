@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-50">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issue Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bg-gray-50">
+    <div class="navbar">
+        <div class="flex-1">
+            <i class="btn btn-ghost text-5xl fa-brands fa-github-alt"></i>
+            <a>with love by Anubhav</a>
+        </div>
+        <div class="flex-none">
+            <ul class="menu menu-horizontal px-1">
+                <li><a><i class="fa-solid fa-code-branch"></i>Repo</a></li>
+                <li>
+                    <details>
+                        <summary>More</summary>
+                        <ul class="bg-gray-100 rounded-t-none p-2 text-sm">
+                            <li><a href="https://anubhav99.onrender.com/">About</a></li>
+                            <li><a href="https://uc64l098ghp.typeform.com/to/WcD69Q4L">Rate</a></li>
+                        </ul>
+                    </details>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container mx-auto">
+        <h1 class="text-5xl font-extrabold text-center mb-12 text-gray-800">Gitsy-GitHub Issue Tracker</h1>
+        <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+            <form id="repo-form" class="flex flex-col sm:flex-row gap-4 mb-12">
+                <input id="username" type="text"
+                    class="flex-grow p-4 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150"
+                    placeholder="GitHub Username">
+                <input id="repo" type="text"
+                    class="flex-grow p-4 border rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150"
+                    placeholder="Repository Name">
+                <button type="submit"
+                    class="p-4 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-150">Fetch
+                    Issues</button>
+            </form>
+
+            <!-- Repository details -->
+            <div id="repo-details" class="mb-8 hidden bg-gray-100 p-6 rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold mb-4" id="repo-name"></h2>
+                <p id="repo-description" class="text-gray-700 mb-4"></p>
+                <p class="flex items-center mb-2"><i
+                        class="fas fa-language mr-2 text-blue-500"></i><strong>Language:</strong> <span
+                        id="repo-language" class="font-medium"></span></p>
+                <p class="flex items-center mb-2"><i
+                        class="fas fa-star mr-2 text-yellow-500"></i><strong>Stars:</strong> <span id="repo-stars"
+                        class="font-medium"></span></p>
+                <p class="flex items-center mb-2"><i
+                        class="fas fa-code-branch mr-2 text-green-500"></i><strong>Forks:</strong> <span id="repo-forks"
+                        class="font-medium"></span></p>
+            </div>
+
+            <ul id="issues-list" class="space-y-6"></ul>
+
+            <!-- Pagination controls -->
+            <div id="pagination-controls" class="flex justify-center mt-8"></div>
+        </div>
+    </div>
+    <footer class="text-gray-600 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-blue-500">
+                <i class="btn btn-ghost text-5xl fa-brands fa-github-alt"></i>
+                <span class="ml-3 text-xl">Gitsy</span>
+            </a>
+            <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
+                2024 Gitsy —
+                <a href="https://anubhav99.onrender.com/" class="text-gray-600 ml-1" rel="noopener noreferrer"
+                    target="_blank">@Anubhav</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                <a href="https://anubhav99.onrender.com/" class="text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/AnubhavSingh99x" class="ml-3 text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        class="w-5 h-5" viewBox="0 0 24 24">
+                        <path
+                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/anu.bhav_pvtt/#" class="ml-3 text-gray-500">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/anubhav-singh99/" class="ml-3 text-gray-500">
+                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path stroke="none"
+                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                        </path>
+                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                    </svg>
+                </a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
